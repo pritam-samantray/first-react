@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
 import "./BoxModal.css"
 
 const style = {
@@ -25,6 +26,7 @@ export default function BoxModal({
 
 
   const handleClose = () => setOpen(false);
+  const RATE = Number(data.rating.rate)
 
   return (
     <div>
@@ -46,6 +48,8 @@ export default function BoxModal({
                 <p>{data?.description}</p>
                 <p>Category: {data?.category}</p>
                 <p>Price: $.{data?.price}</p>
+              <Rating precision={0.5} name="size-medium" defaultValue={RATE} />
+              <p>Rated <b>{RATE}</b> by {data?.rating?.count} people.</p>
               </div>
             </div>
           </Typography>
